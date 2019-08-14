@@ -24,7 +24,7 @@ function liriRun(userInput, userSearch) {
         case "movie-this":
             getOMDB(userSearch);
             break;
-        case "do-this":
+        case "do-what-it-says":
             getIt();
             break;
         default:
@@ -47,8 +47,8 @@ function getSpotify(songName) {
 
         console.log("_,.;:-+=^=+-:;.,__,.;:-+=^=+-:;.,_")
         console.log("Artist[s] Name: " + data.tracks.items[0].album.artists[0].name + "\r\n");
-        console.log("Song NAme: " + data.tracks.items[0].name + "\r\n");
-        console.log("Song Preview Link: " + data.tracks.items.href + "\r\n");
+        console.log("Song Name: " + data.tracks.items[0].name + "\r\n");
+        console.log("Song Preview Link: " + data.tracks.items[0].href + "\r\n");
         console.log("Album: " + data.tracks.items[0].album.name + "\r\n");
 
     })
@@ -83,15 +83,15 @@ function getOMDB(movie) {
             console.log("- IMDB Rating: " + response.data.imdbRating + "\r\n");
             console.log("- Rotten Tomatoes Rating: " + response.data.Ratings[1].Value + "\r\n");
             console.log("- Country Produced in: " + response.data.Country + "\r\n");
-            console.log("- Language: " + response.data.language + "\r\n");
-            console.log("- Plots: " + response.data.Plot + "\r\n");
+            console.log("- Language: " + response.data.Language + "\r\n");
+            console.log("- Plot: " + response.data.Plot + "\r\n");
             console.log("- Actors: " + response.data.Actors + "\r\n");
         }
     )
 }
 // refernce to random.txt for lack of search
 function getIt() {
-    false.readFile("random.txt", "utf8", function (error, data){
+    fs.readFile("random.txt", "utf8", function (error, data){
         if (error) {
             return console.log(error);
         }
